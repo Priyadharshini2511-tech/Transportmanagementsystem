@@ -1,0 +1,28 @@
+CREATE TABLE ACCOUNT_TBL(
+
+Account_Number VARchar2(10),
+Customer_Name VArchar2(15),
+Balance Number(10,2),
+PRIMARY KEY (Account_Number)
+
+);
+
+INSERT INTO ACCOUNT_TBL
+
+VALUES (1234567890","Reddy",80000),
+VALUES (1234567891","Mahesh",0),
+VALUES (1234567892","Dhanu",100),
+VALUES (1234567893","Sam",500);
+
+
+CREATE TABLE TRANSFER_TBL(
+
+Transaction_ID  Number(4),
+Account_Number Varchar2(10),
+Beneficiary_account_number Varchar2(10),
+Transaction_Date Date,
+Transaction_Amount Number(10,2),
+PRIMARY KEY (Transaction_ID),
+CONSTRAINT Account_Number FORGIEN KEY REFERENCES ACCOUNT_TBL (Account_Number),
+CONSTRAINT Beneficiary_account_number FORGIEN KEY REFERENCES ACCOUNT_TBL (Account_Number)
+);
